@@ -42,6 +42,8 @@ $ /etc/init.d/nginx restart
 
 ### 更多
 
+可以看看 [项目整体介绍](https://www.yuque.com/lzan13/fn003n/ypa51f)
+
 **项目客户端下载体验**
 
 - [本地 APK 包下载](http://app.melove.net/fwn)
@@ -53,13 +55,6 @@ $ /etc/init.d/nginx restart
 - [gitee/vmtemplateadmin](https://gitee.com/lzan13/vmtemplateadmin) 管理端项目使用`vue3`+`vite`+`element-plus`
 - [gitee/vmtemplatehome](https://gitee.com/lzan13/vmtemplatehome) 首页端项目使用`vue3`+`vite`
 - [gitee/vmtemplateserver](https://gitee.com/lzan13/vmtemplateserver) 服务器端项目使用`eggjs`
-
-**项目介绍说明**
-
-- [Android 功能介绍](https://mp.weixin.qq.com/s/bZYNCkngSuYpYJfdwFFYlw)
-- [服务器介绍说明](https://mp.weixin.qq.com/s/1D0VllcyolPL1ei7Ix9hfw)
-
-- [更新记录](./UPDATE.md)
 
 **沟通交流**
 
