@@ -56,6 +56,11 @@ $ /etc/init.d/nginx restart
 - [gitee/vmtemplatehome](https://gitee.com/lzan13/vmtemplatehome) 首页端项目使用`vue3`+`vite`
 - [gitee/vmtemplateserver](https://gitee.com/lzan13/vmtemplateserver) 服务器端项目使用`eggjs`
 
+- [github/VMTemplateAndroid](https://github.com/lzan13/VMTemplateAndroid) Android 客户端
+- [github/vmtemplateadmin](https://github.com/lzan13/vmtemplateadmin) 管理端项目使用`vue3`+`vite`+`element-plus`
+- [github/vmtemplatehome](https://github.com/lzan13/vmtemplatehome) 首页端项目使用`vue3`+`vite`
+- [github/vmtemplateserver](https://github.com/lzan13/vmtemplateserver) 服务器端项目使用`eggjs`
+
 **沟通交流**
 
 可以通过已下方式找到我，获取最新信息，以及技术支持
