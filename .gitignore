@@ -29,6 +29,8 @@ dist-ssr
 *.sln
 *.sw?
 
+/config/.env
+/config/.env.development
 /config/.env.production
 
 auto-imports.d.ts
