@@ -1,5 +1,5 @@
 <template>
-    <div class="page">
+    <div class="page is-mobile-devices">
         <!-- 导航 -->
         <nav id="nav" class="nav">
             <div class="wrapper">
@@ -23,42 +23,47 @@
             <!-- 内容 -->
             <div class="wrapper">
                 <section class="content">
-                    <h2 class="slogan">忘忧大陆—修仙一样交友</h2>
-                    <div class="desc is-desktop">
+                    <h2 class="slogan">忘忧大陆—虚拟空间交朋友</h2>
+                    <div class="desc">
                         <p>帮助用户解决烦恼，忘记忧愁，放松心情，快乐交友等打造一站式社交平台，</p>
                         <p>弹幕式心情分享，及新颖的即时聊天方式，带给用户不一样的交流体验，让用户之间的交流充满趣味性，提高心情愉悦度，达到忘记烦恼的目的
                         </p>
                     </div>
+                    <div class="tags">
+                        <span class="tag">虚拟空间</span>
+                        <span class="tag-decoration">/</span>
+                        <span class="tag">温馨交流</span>
+                        <span class="tag-decoration">/</span>
+                        <span class="tag">忘却烦恼</span>
+                        <span class="tag-decoration">/</span>
+                        <span class="tag">享受快乐</span>
+                        <span class="tag-decoration">/</span>
+                        <span class="tag">真实自我</span>
+                    </div>
                 </section>
                 <div class="download">
-                    <div class="btn ios">
-                        <img class="icon" src="@/assets/images/icon-ios.png" alt="ios" draggable="false" />
-                        <img class="qrcode" />
-                    </div>
-                    <div class="btn android" @click="jumpUrl(1)">
-                        <img class="icon" src="@/assets/images/icon-android.png" alt="android" draggable="false" />
-                        <img class="qrcode" src="@/assets/images/img-qr-local.png" alt="googleplayQR"
-                            draggable="false" />
-                    </div>
-                    <div class="btn android" @click="jumpUrl(2)">
-                        <img class="icon" src="@/assets/images/icon-googleplay.png" alt="android" draggable="false" />
-                        <img class="qrcode" src="@/assets/images/img-qr-googleplay.png" alt="googleplayQR"
-                            draggable="false" />
+                    <div class="download-item" v-for="item in state.downlaodData" :key="item.url"
+                        @click="jumpDownload(item)">
+                        <img class="download-item-icon" :src="item.icon" draggable="false" />
+                        <div class="download-item-content">
+                            <span class="download-item-content-tips">{{ item.tips }}</span>
+                            <span class="download-item-content-platform">{{ item.platform }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </header>
 
         <!-- 中间内容  -->
-        <section id="features" class="feature is-desktop">
+        <section id="features" class="features">
             <h2 class="title">玩法介绍</h2>
             <div class="wrapper">
-                <ul class="features">
+                <ul class="features-content">
                     <li>
                         <img src="@/assets/images/img-guide-0.svg" alt="feature" draggable="false" />
                         <section>
                             <h3>来到忘忧大陆/<span>01</span></h3>
-                            <p>修仙一样交友，分享你的快乐，忘记你的烦忧</p>
+                            <p>分享你的快乐，忘记你的烦忧</p>
                         </section>
                     </li>
                     <li>
@@ -113,9 +118,34 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, onMounted } from "vue"
+import { nextTick, onMounted, reactive } from "vue"
 
 import Footer from "@/components/Footer.vue"
+import iconAndroid from "@/assets/images/icon-android.svg"
+import iconGooglePlay from "@/assets/images/icon-google-play.svg"
+
+const state = reactive({
+    downlaodData: [
+        {
+            icon: iconAndroid,
+            tips: "本地下载",
+            platform: "Android 32位",
+            url: "https://data.nepenthe.vmloft.com/download/apk/VMNepentheARM32.apk"
+        },
+        {
+            icon: iconAndroid,
+            tips: "本地下载",
+            platform: "Android 64位",
+            url: "https://data.nepenthe.vmloft.com/download/apk/VMNepentheARM64.apk"
+        },
+        {
+            icon: iconGooglePlay,
+            tips: "GooglePlay",
+            platform: "Android",
+            url: "https://play.google.com/store/apps/details?id=com.vmloft.develop.app.nepenthe"
+        },
+    ]
+})
 
 onMounted(() => {
     nextTick(() => {
@@ -137,27 +167,54 @@ const jumpAnchor = (id: string) => {
         anchorEle.scrollIntoView(true)
     }
 }
-// 页面跳转
-const jumpUrl = (type: number) => {
-    if (type == 0) {
-        window.open("", "_blank")
-    } else if (type == 1) {
-        window.open("http://app.melove.net/fwn", "_blank")
-    } else if (type == 2) {
-        window.open("https://play.google.com/store/apps/details?id=com.vmloft.develop.app.nepenthe", "_blank")
-    }
+// 跳转下载
+const jumpDownload = (item) => {
+    window.open(item.url, "_blank")
 }
 </script>
 
 <!-- 添加“scoped”属性以将 CSS 仅限于此组件 -->
 <style lang="scss" scoped>
 @media screen and (max-width: 800px) {
-    .is-desktop {
-        display: none;
-    }
+    .is-mobile-devices {
 
-    .is-mobile {
-        display: block;
+        // display: none;
+        .header {
+            .wrapper {
+                .content {
+
+                    .slogan {
+                        font-size: 24px;
+                    }
+
+                    .desc {
+                        font-size: 14px;
+                    }
+
+                    .tags {
+                        font-size: 12px;
+                    }
+                }
+
+                .download {
+                    display: grid;
+                    justify-content: center;
+                    grid-template-columns: repeat(1, 256px);
+                    margin: 24px;
+                    padding: 8px;
+                    color: #fff;
+                }
+            }
+        }
+
+        .features .wrapper .features-content {
+            li {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                justify-content: center;
+                align-items: center;
+            }
+        }
     }
 }
 
@@ -194,7 +251,7 @@ const jumpUrl = (type: number) => {
                 font-weight: 600;
                 padding: 16px;
                 text-decoration: none;
-                text-shadow: 0 1px 20px #222222;
+                text-shadow: 0 1px 20px #fff;
 
                 &:hover {
                     color: #5a98ff;
@@ -228,24 +285,17 @@ const jumpUrl = (type: number) => {
     .cover {
         position: absolute;
         height: 100vh;
-        width: 150%;
-        left: 50%;
-        transform: translateX(-50%);
-        background: url(@/assets/images/img-cover.jpg);
-        background-position: 50%;
+        width: 100%;
+        background: url(@/assets/images/img-cover-banner.jpg);
         background-size: cover;
-        border-radius: 0 0 50% 50%;
+        background-position: center center;
     }
 
     .mask {
         position: absolute;
         height: 100vh;
-        width: 150%;
-        left: 50%;
-        transform: translateX(-50%);
-        border-bottom-right-radius: 50%;
-        background: rgba(255, 200, 200, 0.9);
-        border-radius: 0 0 50% 50%;
+        width: 100%;
+        background: rgba(22, 22, 22, 0.5);
     }
 
     .wrapper {
@@ -256,59 +306,75 @@ const jumpUrl = (type: number) => {
 
         .content {
             padding: 16px;
-            color: #363636;
+            color: #fff;
+            text-shadow: 1px 3px 25px;
+            text-align: center;
 
             .slogan {
-                font-size: 32px;
-                font-weight: 500;
+                font-size: 56px;
+                font-weight: 800;
             }
 
             .desc {
                 margin-top: 24px;
+                font-size: 24px;
+                font-weight: 500;
+            }
+
+            .tags {
+                margin: 36px 16px;
+                color: #fff;
                 font-size: 16px;
+
+                .tag {
+                    padding: 8px;
+                }
             }
         }
     }
 
     .download {
-        display: flex;
-        margin: auto;
-        margin-top: 24px;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(3, 256px);
+        margin: 24px;
+        padding: 8px;
+        color: #fff;
 
-        .btn {
-            width: 152px;
-            height: 55px;
-            margin: 16px;
-            background: rgba(0, 0, 0, 0.36);
-            // box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
+        .download-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 192px;
+            height: 56px;
+            margin: 16px auto;
+            background: rgba(128, 128, 128, 0.36);
+            border-radius: 16px;
+            border: 1px #fff solid;
+
             transition: all 0.2s;
             cursor: pointer;
 
+            .download-item-icon {
+                width: 36px;
+                height: 36px;
+                padding: 8px;
+            }
+
+            .download-item-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
             &:hover {
-                height: 210px;
+                background: rgba(222, 222, 222, 0.5);
             }
-
-            .icon {
-                width: 152px;
-                height: 55px;
-            }
-
-            .qrcode {
-                width: 152px;
-                height: 152px;
-                margin: 0 auto;
-            }
-        }
-
-        .ios {
-            display: none;
         }
     }
 }
 
-.feature {
+.features {
     width: 100%;
     height: 2400px;
     padding: 36px 0 36px;
@@ -322,29 +388,30 @@ const jumpUrl = (type: number) => {
         margin: auto;
     }
 
-    .features {
+    .features-content {
         margin: 0;
         padding: 0;
         list-style: none;
 
         li {
-            margin-bottom: 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            text-align: center;
+            margin-bottom: 48px;
         }
 
         h3 {
             position: relative;
-            margin: 0 0 18px;
-            color: #886cf8;
+            margin: 0 0 16px;
+            color: #9075fc;
             font-size: 36px;
             font-weight: 500;
             line-height: 56px;
 
             span {
                 position: relative;
-                left: -78px;
+                left: -72px;
                 color: rgba(143, 116, 250, 0.1);
                 font-size: 100px;
                 font-weight: 600;

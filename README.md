@@ -1,10 +1,15 @@
-# vmnepenthehome
+# vmtemplatehome
 
 使用 ts+vue3+vite 进行开发的一个社交项目门户站点，具体使用及功能详情看下边介绍
 
 ### 本地开发调试
 
+记得复制`config/.env.template`一份到 `config/.env`和`config/.env.development` 然后修改里边对应的值为开发配置
+
 ```shell
+# 复制配置文件，并修改内部配置
+$ cp config/.env.template config/.env
+$ cp config/.env.template config/.env.development
 # 安装依赖
 $ yarn install
 # 开发调试，会监听文件改动重新加载
@@ -13,7 +18,11 @@ $ yarn dev
 
 ### 发布上线
 
-```
+记得复制`config/.env.template`一份到 `config/.env.production` 然后修改里边对应的值为线上配置
+
+```shell
+# 复制配置文件，并修改内部配置
+$ cp config/.env.template config/.env.production
 # 打包编译
 $ yarn build
 # 规则检查

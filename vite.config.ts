@@ -60,9 +60,9 @@ export default ({ mode }) => {
             extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"] // 导入时想要省略的扩展名列表
         },
         server: {
-            port: Number(process.env.vmViteAppPort) || 9527, // 端口号
-            https: true, // 启用 TLS + HTTP/2
-            open: true, // 在开发服务器启动时自动在浏览器中打开应用程序
+            port: Number(process.env.vmVitePort) || 9527, // 端口号
+            https: Boolean(process.env.vmViteSSL), // 是否启用 TLS + HTTP/2
+            open: Boolean(process.env.vmViteOpen), // 是否在开发服务器启动时自动在浏览器中打开应用程序
         }
     })
 }
