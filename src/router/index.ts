@@ -15,7 +15,7 @@ const router = createRouter({
         name: "/",
         component: () => import("@/views/home/Index.vue"),
         meta: {
-            title: "忘忧大陆",
+            title: "社交项目",
         },
     }, {
         // 用户协议

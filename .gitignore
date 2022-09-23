@@ -28,7 +28,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
+bu'guo
 /config/.env
 /config/.env.development
 /config/.env.production

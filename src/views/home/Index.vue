@@ -23,7 +23,7 @@
             <!-- 内容 -->
             <div class="wrapper">
                 <section class="content">
-                    <h2 class="slogan">忘忧大陆—虚拟空间交朋友</h2>
+                    <h2 class="slogan">社交项目—虚拟空间交朋友</h2>
                     <div class="desc">
                         <p>帮助用户解决烦恼，忘记忧愁，放松心情，快乐交友等打造一站式社交平台，</p>
                         <p>弹幕式心情分享，及新颖的即时聊天方式，带给用户不一样的交流体验，让用户之间的交流充满趣味性，提高心情愉悦度，达到忘记烦恼的目的
@@ -62,7 +62,7 @@
                     <li>
                         <img src="@/assets/images/img-guide-0.svg" alt="feature" draggable="false" />
                         <section>
-                            <h3>来到忘忧大陆/<span>01</span></h3>
+                            <h3>来到社交项目/<span>01</span></h3>
                             <p>分享你的快乐，忘记你的烦忧</p>
                         </section>
                     </li>

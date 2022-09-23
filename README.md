@@ -51,8 +51,8 @@ $ /etc/init.d/nginx restart
 
 ### 更多
 
-总体介绍 [忘忧大陆项目整体介绍](https://www.yuque.com/lzan13/nepenthe/ypa51f)
-这里预览 [忘忧大陆门户站点](https://nepenthe.vmloft.com)
+总体介绍 [社交项目项目整体介绍](https://www.yuque.com/lzan13/nepenthe/ypa51f)
+这里预览 [社交项目门户站点](https://nepenthe.vmloft.com)
 
 **项目客户端下载体验**
 
